@@ -16,6 +16,24 @@ sg <- read_csv("sentencing_grid.csv")
 
 glimpse(sg)
 
+ggplot(data = sg, aes(x = presumptive_sentence)) +
+  geom_density() +
+  theme_bw() +
+  xlab("Felony Presumptive Sentence") +
+  ylab("Probability density")
+
+ggplot(data = sg, aes(x = log(presumptive_sentence))) +
+  geom_density() +
+  theme_bw() +
+  xlab("ln(Felony Presumptive Sentence)") +
+  ylab("Probability density")
+
+ggplot(data = sg, aes(x = severity_level)) +
+  geom_density() +
+  theme_bw() +
+  xlab("Felony Presumptive Sentence") +
+  ylab("Probability density")
+
 # The relationship between offense severity level and presumptive sentence
 
 f1 <- ggplot(data = sg, aes(x = severity_level, y = presumptive_sentence)) + 

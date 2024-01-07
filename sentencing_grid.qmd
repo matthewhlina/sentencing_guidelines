@@ -148,7 +148,7 @@ The y-intercept for Model 1 is 4.85. This number cannot be interpreted into a me
 #| echo: false
 #| warning: false
 #| label: fig-fits
-#| fig-cap: "Best fits for wines from CA and wines not from CA, according to Model 3."
+#| fig-cap: "Best fits for criminal histories of 1, 3 and 5."
 
 ggplot(data = sg, aes(x = severity_level, y = presumptive_sentence)) + 
   geom_point(aes(color = factor(criminal_history)),
