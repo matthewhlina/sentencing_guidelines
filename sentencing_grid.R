@@ -73,7 +73,9 @@ f2 <- ggplot(data = sg, aes(x = criminal_history, y = presumptive_sentence)) +
                                 "10", "11")
                      )
 
-f1 | f2
+f1 
+
+f2
 
 ########
 # Fit regression model
@@ -87,6 +89,25 @@ glance(lm.1)
 
 # Coefficient level
 tidy(lm.1)
+
+# View transformed figure
+
+ggplot(data = sg, aes(x = severity_level, y = log(presumptive_sentence))) +
+  geom_point() +
+  geom_smooth(se = FALSE) +
+  theme_bw() +
+  xlab("Felony Severity Level") +
+  ylab("ln(Presumptive Sentence)") 
+
+# Quadratic model alternative
+lm.2 <- lm(presumptive_sentence ~ 1 + severity_level + I(severity_level ^ 2) + criminal_history, 
+           data = sg)
+
+# Model level
+glance(lm.2)
+
+# Coefficient level
+tidy(lm.2)
 
 ########
 # Plot fitted curve
